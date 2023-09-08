@@ -28,20 +28,39 @@ const quotes = [
   { quote: 'Welcome to The Rock.', source: 'Sean Connery', citation: 'The Rock', year: 1996, tags: 'Action'},
   { quote: 'No thinking - that comes later. You must write your first draft with your heart. You rewrite with your head. The first key to writing is... to write, not to think!', source: 'Sean Connery', citation: 'Finding Forrester', year: 2000, tags: 'Drama'},
   { quote: 'Just remember: if you hang onto the past, you die a little every day.', source: 'Sean Connery', citation: 'Entrapment', year: 1999, tags: 'Action'},
-  {quote: 'You\'re the man now, dog!', source: 'Sean Connery', citation: 'Finding Forrester', year: 2000, tags: 'Drama'},
+  { quote: 'You\'re the man now, dog!', source: 'Sean Connery', citation: 'Finding Forrester', year: 2000, tags: 'Drama'},
 ];
+
 /***
  * `getRandomQuote` function
 ***/
+/* This section is for creating the getRandomQuote function to randomize displaying quotes from my array. Using Math.floor() and 
+Math.random() functions and a for loop, with my limit being the array length of my quotes array I can iterate over every quote in my array */
 
-
+function getRandomQuote() {
+  let randomQuote = Math.floor(Math.random() * quotes.length);
+  for (let i = 0; i < quotes.length; i++) {
+    return quotes[randomQuote];
+  }
+}
 
 /***
  * `printQuote` function
 ***/
 
+/* This section is for creating the printQuote function to display the random quote from the getRandomQuote function*/
+function printQuote() {
+  let randomQuote = getRandomQuote();
+  let html = `<p class="quote">${randomQuote.quote}</p>
+  <p class="source">${randomQuote.source}
+  <span class="citation">${randomQuote.citation}</span>
+  <span class="year">${randomQuote.year}</span>
+  <span class="tags">${randomQuote.tags}</span>
+  </p>`;
+  document.getElementById('quote-box').innerHTML = html;
+} */
 
-
+console.log(getRandomQuote());
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
