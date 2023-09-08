@@ -101,4 +101,4 @@ document.getElementById('load-quote').addEventListener("click", printQuote, fals
 /*if (randomQuote.quote === "Welcome to The Rock."){
     document.write(`This quote is from my favorite movie`)
   };
-  where can i add this quote
+  where can i add this quote */
