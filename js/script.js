@@ -89,6 +89,7 @@ function printQuote() {
 function changeBackgroundColor() {
   let randomColor = colors[Math.floor(Math.random() * colors.length)]; // Using the same method as the getRandomQuote function to randomize the background color
   document.body.style.backgroundColor = randomColor; // This changes the background color of the entire page
+}
 
 /*Additionally, a setInterval function is introduced here to automatically refresh the quote and background color after 10 seconds. 
 The structure of this function was sourced from stack overflow*/
