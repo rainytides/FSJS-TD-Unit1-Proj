@@ -35,6 +35,7 @@ const quotes = [
   { quote: 'And the game is on.', source: 'Sean Connery', citation: 'The League of Extraordinary Gentlemen', year: 2003, tags: 'Action'},
 ];
 
+
 const colors = [
   "red", "blue", "salmon", "maroon", "olive", "turquoise", "green", "orange", "purple", "palevioletred", "saddlebrown"
 ];
@@ -42,8 +43,8 @@ const colors = [
 /***
  * `getRandomQuote` function
 ***/
-/* This section is for creating the getRandomQuote function to randomize displaying quotes from my array. Using Math.floor() and 
-Math.random() functions and a for loop, with my limit being the array length of my quotes array I can iterate over every quote in my array */
+/* This section is for creating the getRandomQuote function to randomize displaying quotes from the quotes array. Using the methods Math.floor() and 
+Math.random() I iterate over every quote in my array */
 
 function getRandomQuote() {
   let randomQuote = Math.floor(Math.random() * quotes.length);
@@ -81,16 +82,22 @@ function printQuote() {
   document.getElementById('quote-box').innerHTML = html;
 
   //Finally, the changeBackgroundColor function is called to randomize the background color of the page
-  changeBackgroundColor();
-  
+  changeBackgroundColor();  
 } 
 
-// This section is for creating the changeBackgroundColor function to randomize the background color of the page
-
+// This function, changeBackgroundColor, is used to randomize the background color of the page
 function changeBackgroundColor() {
   let randomColor = colors[Math.floor(Math.random() * colors.length)];
   document.body.style.backgroundColor = randomColor;
 }
+
+/*Additionally, a setInterval function is introduced here to automatically refresh the quote and background color after 10 seconds*/
+function autoRefresh(){
+  setInterval(function() {
+    document.getElementById('load-quote').click(); 
+  }, 10000);
+}
+
 
 /***
  * click event listener for the print quote button
@@ -98,8 +105,4 @@ function changeBackgroundColor() {
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
-
-/*if (randomQuote.quote === "Welcome to The Rock."){
-    document.write(`This quote is from my favorite movie`)
-  };
-  where can i add this quote */
+autoRefresh();
