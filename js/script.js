@@ -85,7 +85,7 @@ function printQuote() {
   changeBackgroundColor();  
 } 
 
-// This function, changeBackgroundColor, is used to randomize the background color of the page
+// This function, changeBackgroundColor, is used to generate a new random background color for the page each time a new quote is displayed
 function changeBackgroundColor() {
   let randomColor = colors[Math.floor(Math.random() * colors.length)]; // Using the same method as the getRandomQuote function to randomize the background color
   document.body.style.backgroundColor = randomColor; // This changes the background color of the entire page
