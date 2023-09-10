@@ -35,6 +35,10 @@ const quotes = [
   { quote: 'And the game is on.', source: 'Sean Connery', citation: 'The League of Extraordinary Gentlemen', year: 2003, tags: 'Action'},
 ];
 
+const colors = [
+  "red", "blue", "salmon", "maroon", "olive", "turquoise", "green", "orange", "purple", "palevioletred", "saddlebrown"
+];
+
 /***
  * `getRandomQuote` function
 ***/
@@ -43,10 +47,8 @@ Math.random() functions and a for loop, with my limit being the array length of 
 
 function getRandomQuote() {
   let randomQuote = Math.floor(Math.random() * quotes.length);
-  for (let i = 0; i < quotes.length; i++) {
-    return quotes[randomQuote];
-  }
-}
+  return quotes[randomQuote];
+} 
 
 /***
  * `printQuote` function
@@ -86,7 +88,6 @@ function printQuote() {
 // This section is for creating the changeBackgroundColor function to randomize the background color of the page
 
 function changeBackgroundColor() {
-  let colors = ["red", "blue", "salmon", "maroon", "olive", "turquoise", "green", "orange", "purple", "palevioletred", "saddlebrown"];
   let randomColor = colors[Math.floor(Math.random() * colors.length)];
   document.body.style.backgroundColor = randomColor;
 }
