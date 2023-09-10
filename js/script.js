@@ -43,8 +43,8 @@ const colors = [
 /***
  * `getRandomQuote` function
 ***/
-/* This section is for creating the getRandomQuote function to randomize displaying quotes from the quotes array. Using the methods Math.floor() and 
-Math.random() I iterate over every quote in my array */
+/* This section is for creating the getRandomQuote function to randomize displaying quotes from the quotes array. Using the methods Math.floor() [which rounds down to the nearest integer] and 
+Math.random() [which generates a random number between 0 and 1], I iterate over every quote in my array */
 
 function getRandomQuote() {
   let randomQuote = Math.floor(Math.random() * quotes.length);
@@ -55,7 +55,7 @@ function getRandomQuote() {
  * `printQuote` function
 ***/
 
-/* This section is for creating the printQuote function to display the random quote from the getRandomQuote function */
+/* This section is for creating the printQuote function to display a random quote from the getRandomQuote function */
 function printQuote() {
   let randomQuote = getRandomQuote(); // To get a random quote from the getRandomQuote function
 
@@ -64,7 +64,7 @@ function printQuote() {
   `<p class="quote">${randomQuote.quote}</p> 
   <p class="source">${randomQuote.source}`;
 
-  //Next, verify if the citation, year and tags properties exist in the quotes object. If they do, add them to the HTML string by concatenation.
+  //Next, I verify if the citation, year and tags properties exist in the quotes object. If they do, I add them to the HTML string by concatenation.
    if (randomQuote.citation) {
      html += `<span class="citation">${randomQuote.citation}</span>`;
     }
@@ -76,7 +76,7 @@ function printQuote() {
     if (randomQuote.tags) {
       html += `<span class="tags">[Genre: ${randomQuote.tags}]</span>`; /* Adding the square brackets around the tags property to make the info easy to identify */
     }
-    html += `</p>`;
+    html += `</p>`; // Closing the paragraph tag for all the text displayed below the quote itself
 
   //Next, the HTML string is displayed on the page using the innerHTML property.
   document.getElementById('quote-box').innerHTML = html;
@@ -87,15 +87,15 @@ function printQuote() {
 
 // This function, changeBackgroundColor, is used to randomize the background color of the page
 function changeBackgroundColor() {
-  let randomColor = colors[Math.floor(Math.random() * colors.length)];
-  document.body.style.backgroundColor = randomColor;
-}
+  let randomColor = colors[Math.floor(Math.random() * colors.length)]; // Using the same method as the getRandomQuote function to randomize the background color
+  document.body.style.backgroundColor = randomColor; // This changes the background color of the entire page
 
-/*Additionally, a setInterval function is introduced here to automatically refresh the quote and background color after 10 seconds*/
+/*Additionally, a setInterval function is introduced here to automatically refresh the quote and background color after 10 seconds. 
+The structure of this function was sourced from stack overflow*/
 function autoRefresh(){
   setInterval(function() {
-    document.getElementById('load-quote').click(); 
-  }, 10000);
+    document.getElementById('load-quote').click(); //Performs an automatic click on the load-quote button
+  }, 10000); // This function is set to run every 10 seconds. The time is in milliseconds.
 }
 
 
@@ -105,4 +105,4 @@ function autoRefresh(){
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
-autoRefresh();
+autoRefresh(); /*This function call automatically refreshes the page every 10 seconds.*/
