@@ -93,11 +93,11 @@ function changeBackgroundColor() {
 
 /*Additionally, a setInterval function is introduced here to automatically refresh the quote and background color after 10 seconds. 
 The structure of this function was sourced from stack overflow*/
-function autoRefresh(){
+/*function autoRefresh(){
   setInterval(function() {
     document.getElementById('load-quote').click(); //Performs an automatic click on the load-quote button
   }, 10000); // This function is set to run every 10 seconds. The time is in milliseconds.
-}
+}*/
 
 
 /***
@@ -106,4 +106,5 @@ function autoRefresh(){
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
-autoRefresh(); /*This function call automatically refreshes the page every 10 seconds.*/
+//autoRefresh(); /*This function call automatically refreshes the page every 10 seconds.*/
+setInterval(printQuote, 10000); // This function is set to run every 10 seconds. The time is in milliseconds.
